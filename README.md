@@ -5,7 +5,7 @@ This is a simple Todo List web application built using Next.js and Prisma.
 ## Features
 
 - **Todo Creation**: Easily add new tasks to your list.
-- **Todo Management**: Mark tasks as completed when done.
+- **Todo Management**: Mark tasks as completed and delete them when done.
 
 ## Start the development server:
 
