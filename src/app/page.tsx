@@ -1,11 +1,19 @@
 import { TodoItem } from "@/components/TodoItem";
 import { prisma } from "@/db";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function toggle(id: string, complete: boolean) {
   "use server";
 
   await prisma.todo.update({ where: { id }, data: { complete } });
+}
+
+async function deleteTodo(id: string) {
+  "use server";
+  console.log("Deleting todo with ID:", id); // Log the ID to verify
+  await prisma.todo.delete({ where: { id } });
+  redirect("/");
 }
 
 export default async function Home() {
@@ -24,7 +32,12 @@ export default async function Home() {
       </header>
       <ul className="pl-4">
         {todos.map((todo) => (
-          <TodoItem key={todo.id} {...todo} toggleTodo={toggle} />
+          <TodoItem
+            key={todo.id}
+            {...todo}
+            toggleTodo={toggle}
+            deleteTodo={deleteTodo}
+          />
         ))}
       </ul>
     </>
