@@ -8,9 +8,11 @@ This is a simple Todo List web application built using Next.js and Prisma.
 - **Todo Management**: Mark tasks as completed when done.
 
 ## Start the development server:
+
 ```bash
 npm run dev
 ```
+
 Open your browser and visit `http://localhost:3000` to view the app.
 
 ## License
